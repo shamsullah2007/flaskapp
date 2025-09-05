@@ -3,38 +3,38 @@
 <div>
     {%with messages= get_flashed_messages(with_categories=true) %}
     {% if messages %}
-      {% for message in messages %}
-        <div class="alert " role="alert">{{message}}</div>
-        {%endfor%}
+    {% for message in messages %}
+    <div class="alert " role="alert">{{message}}</div>
+    {%endfor%}
     {%endif%}
-    
+
 
     {%endwith%}
 </div>
 <legend>new post</legend>
 <div>
     <form method="post" action="">
-      <div>  
-        {{form.hidden_tag()}}
-    </div>
+        <div>
+            {{form.hidden_tag()}}
+        </div>
         <div>
             {{form.title.label}}
-        
+
             {{form.title (class='form-control is-invailid ' )}}
             {%for error in form.title.errors%}
             <span>{{error}}</span>
             {%endfor%}
-            
+
         </div>
-        
+
         <div>
             {{form.content.label}}
-        
+
             {{form.content (class='form-control is-invailid ' )}}
             {%for error in form.content.errors%}
-            <span>{{error}}</span>
+            <span style="background-color: aquamarine;">{{error}}</span>
             {%endfor%}
-            
+
         </div>
         {{form.publish(class='btn btn-outline-success')}}
 
